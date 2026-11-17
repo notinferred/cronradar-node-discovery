@@ -1,0 +1,70 @@
+{
+  "name": "cronradar-node-discovery",
+  "version": "0.1.0",
+  "description": "Automatic CronRadar monitoring for BullMQ Job Schedulers and node-cron tasks: discovers every scheduled job, syncs it, and reports each run.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p test/tsconfig.json",
+    "test": "npm run build && node --test test/*.test.js",
+    "prepublishOnly": "npm run typecheck && npm test"
+  },
+  "keywords": [
+    "cron",
+    "monitoring",
+    "bullmq",
+    "node-cron",
+    "job-scheduler",
+    "scheduled-jobs",
+    "missed-jobs",
+    "failed-jobs",
+    "auto-discovery",
+    "cronradar"
+  ],
+  "author": "CronRadar <support@cronradar.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/notinferred/cronradar-node-discovery.git"
+  },
+  "bugs": {
+    "url": "https://github.com/notinferred/cronradar-node-discovery/issues"
+  },
+  "homepage": "https://github.com/notinferred/cronradar-node-discovery#readme",
+  "engines": {
+    "node": ">=20"
+  },
+  "peerDependencies": {
+    "bullmq": ">=5.0.0 <7",
+    "cronradar": ">=0.1.1 <1",
+    "node-cron": ">=3.0.0 <5"
+  },
+  "peerDependenciesMeta": {
+    "bullmq": {
+      "optional": true
+    },
+    "node-cron": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "20.19.42",
+    "bullmq": "6.5.4",
+    "cronradar": "0.1.1",
+    "node-cron": "4.6.0",
+    "typescript": "6.0.3"
+  }
+}
